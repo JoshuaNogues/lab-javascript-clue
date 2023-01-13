@@ -5,7 +5,7 @@
 const suspectsArray = [
     {
         firstName: 'Jacob',
-        lastName: 'Green,
+        lastName: 'Green',
         occupation: 'Entrepreneur',
         age: 45,
         description: 'He has a lot of connections',
@@ -61,7 +61,53 @@ const suspectsArray = [
 
 // Rooms Array
 
-const roomsArray = [];
+const roomsArray = [
+    {
+        name: "Dining Room"
+    },
+    {
+        name: "Conservatory"
+    },
+    {
+        name: "Kitchen"
+    },
+    {
+        name: "Study"
+    },
+    {
+        name: "Library"
+    },
+    {
+        name: "Billiard Room"
+    },
+    {
+        name: "Lounge"
+    },
+    {
+        name: "Ballroom"
+    },
+    {
+        name: "Hall"
+    },
+    {
+        name: "Spa"
+    },
+    {
+        name: "Living Room"
+    },
+    {
+        name: "Observatory"
+    },
+    {
+        name: "Theater"
+    },
+    {
+        name: "Guest House"
+    },
+    {
+        name: "Patio"
+    }
+];
 
 // Weapons Array
 
@@ -107,13 +153,26 @@ const weaponsArray = [
 
 // ITERATION 2
 
-function selectRandom() {}
+function selectRandom(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  }
 
-function pickMystery() {}
+  function pickMystery() {
+    let suspect = selectRandom(suspectsArray)
+    let weapon = selectRandom(weaponsArray)
+    let room = selectRandom(roomsArray)
+    return {
+      suspect: suspect,
+      weapon: weapon,
+      room: room,
+    }
+  }
+  
 
 
 // ITERATION 3
 
-function revealMystery() {}
-
- 
+function revealMystery(envelope) {
+    return `${envelope.suspect.firstName} ${envelope.suspect.lastName} killed Mr. Boddy using the ${envelope.weapon.name} in the ${envelope.room.name}!`
+  }
+  console.log(revealMystery(pickMystery()));
